@@ -17,7 +17,7 @@ const Navbar = () => {
     <nav className='w-full lg:max-w-[1248px] fixed top-0 shadow-[1px_8px_200px_yellow] z-10'>
 
       <div className='bg-gray-100 p-4 flex justify-between'>
-        <p className='uppercase text-2xl font-bold'>Locations
+        <p className='uppercase text-2xl font-bold '>Locations
           <b className='bg-gradient-to-tr from-green-400 to-yellow-500 bg-clip-text text-transparent text-3xl'>BR</b>
         </p>
 
