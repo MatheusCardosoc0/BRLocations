@@ -21,7 +21,7 @@ const Navbar = () => {
           <b className='bg-gradient-to-tr from-green-400 to-yellow-500 bg-clip-text text-transparent text-3xl'>BR</b>
         </p>
 
-        <Link href={navInitial != '/'? '/' : '/components/StatesPage'} className='flex items-center gap-1 bg-gradient-to-tr from-yellow-500 to-green-500 p-1 rounded-xl text-white drop-shadow-[1px_1px_black]'
+        <Link href={navInitial != '/'? '/' : '/components/StatesPage'} className='flex items-center gap-1 bg-gradient-to-tr from-yellow-500 to-green-500 p-1 rounded-xl text-white drop-shadow-[1px_1px_black] '
         onClick={() => setIsFilterActivate((prevIsFilter: boolean) => !prevIsFilter)}>
           <AiFillEye className='text-white text-xl' />
           <p className='drop-shadow-[1px_1px_black] font-bold'>
