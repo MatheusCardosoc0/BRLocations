@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.section{
+  @apply w-full lg:max-w-[1248px] overflow-x-hidden mx-auto py-10
+}
