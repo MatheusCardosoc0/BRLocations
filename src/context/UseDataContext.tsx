@@ -19,21 +19,21 @@ type InitialValueProps = {
 
 export const UserContext = createContext<InitialValueProps>(InitialValue)
 
-export const UseContextProvider = ({ children }: {children : ReactNode}) => {
+export const UseContextProvider = ({ children }: { children: ReactNode }) => {
   const [states, setStates] = useState<StateProps[]>([])
   const [municipios, setMunicipios] = useState<MunicipioProps[]>([])
   const [stateSelected, setStateSelected] = useState('')
   const [isFilterActivate, setIsFilterActivate] = useState(false)
 
   async function getStates(sigla?: string) {
-    await axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${isFilterActivate ? `${sigla}/municipios` : ''}`)
-      .then(data => {
-        if (isFilterActivate) {
-          setMunicipios(data.data)
-        } else {
-          setStates(data.data)
-        }
-      })
+    try {
+      const response = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
+      const json = await response.json()
+
+      setStates(json)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export const UseContextProvider = ({ children }: {children : ReactNode}) => {
   const selectedMunicipios = (sigla?: string) => {
     setIsFilterActivate(prevFilterActivate => !prevFilterActivate)
     getStates(sigla)
-    
+
   }
 
 
