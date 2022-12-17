@@ -7,5 +7,7 @@ export const InitialValue = {
   setStateSelected: () => {},
   isFilterActivate: false,
   setIsFilterActivate: () => {},
-  selectedMunicipios: () => {}
+  selectedMunicipios: () => {},
+  search: '',
+  setSearch: () => {},
 }

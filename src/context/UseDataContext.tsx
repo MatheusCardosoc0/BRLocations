@@ -13,6 +13,8 @@ type InitialValueProps = {
   isFilterActivate: boolean
   setIsFilterActivate: any
   selectedMunicipios: any
+  search: string
+  setSearch: any
 }
 
 
@@ -24,6 +26,7 @@ export const UseContextProvider = ({ children }: { children: ReactNode }) => {
   const [municipios, setMunicipios] = useState<MunicipioProps[]>([])
   const [stateSelected, setStateSelected] = useState('')
   const [isFilterActivate, setIsFilterActivate] = useState(false)
+  const [search, setSearch] = useState('')
 
   async function getStates(sigla?: string) {
     try {
@@ -39,6 +42,12 @@ export const UseContextProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     getStates()
   }, [])
+
+  useEffect(() => {
+    if(search == ''){
+      getStates()
+    }
+  },[search])
 
   const selectedMunicipios = (sigla?: string) => {
     setIsFilterActivate(prevFilterActivate => !prevFilterActivate)
@@ -58,7 +67,9 @@ export const UseContextProvider = ({ children }: { children: ReactNode }) => {
         setStateSelected,
         states,
         stateSelected,
-        selectedMunicipios
+        selectedMunicipios,
+        search,
+        setSearch
       }
     }>
       {children}

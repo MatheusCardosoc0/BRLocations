@@ -13,7 +13,7 @@ const State = () => {
 
   const StateId = router.query.StateId
 
-  const { municipios, setMunicipios } = useDataContext()
+  const { municipios, setMunicipios, setSearch, search } = useDataContext()
 
   async function getMunicipios(key = 'municipios') {
     
@@ -31,7 +31,14 @@ const State = () => {
 
   useEffect(() => {
     getMunicipios()
+    setSearch('')
   }, [])
+
+  useEffect(() => {
+    if(search == ''){
+      getMunicipios()
+    }
+  },[search])
 
 
   return (
