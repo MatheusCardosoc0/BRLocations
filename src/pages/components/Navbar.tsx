@@ -46,20 +46,20 @@ const Navbar = () => {
   return (
     <nav className='w-full lg:max-w-[1248px] fixed top-0 shadow-[1px_8px_200px_yellow] z-10'>
 
-      <div className='bg-gray-100 p-4 flex justify-between'>
+      <div className='bg-gray-100 p-4 flex justify-between flex-col items-center gap-4 sm:flex-row sm:gap-0'>
         <p className='uppercase text-2xl font-bold '>Locations
           <b className='bg-gradient-to-tr from-green-400 to-yellow-500 bg-clip-text text-transparent text-3xl'>BR</b>
         </p>
 
         {navInitial != '/' && (
           <input type={"search"} placeholder="Buscar"
-            className='px-2 flex-1 mx-4'
+            className='px-2 flex-1 mx-4 '
             onChange={e => setSearch(e.target.value)}
             value={search} />
         )}
 
         <Link href={navInitial != '/' ? '/' : '/components/StatesPage'} className='flex items-center gap-1 bg-gradient-to-tr from-yellow-500 to-green-500 p-1 rounded-xl text-white drop-shadow-[1px_1px_black] '>
-          <AiFillEye className='text-white text-xl' />
+          <AiFillEye className='text-white text-sm sm:text-xl' />
           <p className='drop-shadow-[1px_1px_black] font-bold'>
             {navInitial != '/' ? 'Mapa' : 'Todos os estados'}
           </p>

@@ -6,7 +6,7 @@ const Layaut = ({children}: {children: React.ReactNode}) => {
     <main className='flex justify-center mx-auto'>
       <Navbar />
 
-      <div className='w-full pt-20'>
+      <div className='w-full pt-40 sm:pt-20'>
         {children}
       </div>
     </main>
