@@ -15,7 +15,7 @@ const State = () => {
 
   const { municipios, setMunicipios } = useDataContext()
 
-  async function getMunicipios(key: string) {
+  async function getMunicipios(key = 'municipios') {
     
     try {
       const response = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${StateId}/${key}`)
@@ -30,7 +30,7 @@ const State = () => {
   }
 
   useEffect(() => {
-    getMunicipios('muncipios')
+    getMunicipios()
   }, [])
 
 
